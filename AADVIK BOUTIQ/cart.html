@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - AADVIK BOUTIQ</title>
+
+  <style>
+    body{
+      font-family: Arial;
+      padding:20px;
+      background:#f5f5f5;
+    }
+
+    h1{
+      text-align:center;
+    }
+
+    .box{
+      max-width:600px;
+      margin:auto;
+    }
+
+    .item{
+      background:white;
+      padding:10px;
+      margin:10px 0;
+      display:flex;
+      justify-content:space-between;
+      border-radius:8px;
+    }
+
+    button{
+      background:red;
+      color:white;
+      border:none;
+      padding:5px 10px;
+      cursor:pointer;
+      border-radius:5px;
+    }
+
+    .total{
+      text-align:right;
+      font-size:20px;
+      margin-top:20px;
+    }
+
+    .pay{
+      display:block;
+      width:100%;
+      margin-top:20px;
+      padding:10px;
+      background:green;
+      color:white;
+      border:none;
+      cursor:pointer;
+      border-radius:8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🛒 Your Cart</h1>
+
+<div class="box" id="cartBox"></div>
+
+<div class="total" id="total"></div>
+
+<button class="pay" onclick="payNow()">Proceed to Payment</button>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let box = document.getElementById("cartBox");
+
+let total = 0;
+
+function showCart(){
+
+  box.innerHTML = "";
+  total = 0;
+
+  cart.forEach((item, index)=>{
+
+    total += Number(item.price);
+
+    box.innerHTML += `
+      <div class="item">
+        <div>
+          <h3>${item.name}</h3>
+          <p>₹${item.price}</p>
+        </div>
+
+        <button onclick="removeItem(${index})">X</button>
+      </div>
+    `;
+
+  });
+
+  document.getElementById("total").innerText = "Total: ₹" + total;
+}
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  showCart();
+
+}
+
+function payNow(){
+  window.location.href = "payment.html";
+}
+
+showCart();
+
+</script>
+
+</body>
+</html>

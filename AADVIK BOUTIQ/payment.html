@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+</head>
+
+<body>
+
+<h1>💳 Payment Page</h1>
+
+<h2 id="total">Loading...</h2>
+
+<button onclick="payNow()">Pay Now</button>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+
+for(let i = 0; i < cart.length; i++){
+  total = total + Number(cart[i].price);
+}
+
+document.getElementById("total").innerText = "Total: ₹" + total;
+
+function payNow(){
+
+  if(cart.length === 0){
+    alert("Cart is Empty");
+    return;
+  }
+
+  alert("Payment Successful ✅");
+
+  localStorage.removeItem("cart");
+
+  window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+</html>
