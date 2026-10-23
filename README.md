@@ -1,16 +1,16 @@
 # Aadvik Boutique
 
-A modern, responsive e-commerce website designed for a boutique store.
+A static saree storefront demo built with HTML, CSS, and JavaScript.
 
 ## Features
-- Dynamic product rendering using JavaScript arrays.
-- Search functionality to filter collections.
-- Responsive layout using CSS Grid and Flexbox.
 
-## Technologies Used
-- HTML5
-- CSS3 (Flexbox & Grid)
-- Vanilla JavaScript
+- Responsive product and collection pages
+- Search products from the home page
+- Add products to a browser-local cart and view the sample total
+- Sample checkout and contact pages
 
-- <img width="1349" height="627" alt="image" src="https://github.com/user-attachments/assets/97eda1e0-18d8-4545-8223-a104c9b1f29d" />
+## Run it
 
+Open the repository root index.html; it loads the storefront from AADVIK BOUTIQ/. You can also open AADVIK BOUTIQ/index.html directly.
+
+The cart is stored in local browser storage. Checkout is a visual demo only and does not process payments or create a real order.
